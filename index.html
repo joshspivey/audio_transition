@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="includes/js/simple-slider.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="includes/js/audioSlider.js"></script>
+		
+		<title></title>
+		
+		<style data-href="ui/css/audioSlider.css" media="">body
+		{
+			background-color: black;
+			color: white;
+		}
+
+		#audio-slider
+		{
+			position: relative;
+		}
+
+		#button-blocker
+		{
+			position         :absolute;
+
+			opacity          : .5;
+			width            : 100px;
+			height           : 100px;
+			z-index          : 1000;
+			top              : 220px;
+			left             : 80px;
+		}
+
+
+		/* __________ SLIDER __________ */
+		
+		.slider-volume > .dragger {
+		    background: -moz-linear-gradient(90deg, #B4B4B4 20%, #E6E6E6 50%, #B4B4B4 80%) repeat scroll 0 0 transparent;
+		    border: 1px solid rgba(255, 255, 255, 0.6);
+		    border-radius: 10px 10px 10px 10px;
+		    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5), 0 2px 5px 2px rgba(0, 0, 0, 0.2);
+		    height: 16px;
+		    margin: 0 auto;
+		    width: 16px;
+		}
+
+		.slider-volume > .track {
+			height: 11px;
+			background: #787878;
+			background: -moz-linear-gradient(top, #787878, #A2A2A2);
+			background: -webkit-linear-gradient(top, #787878, #A2A2A2);
+			background: -moz-linear-gradient(top, #787878, #A2A2A2);
+			-moz-box-shadow: inset 0 2px 5px 1px rgba(0,0,0,0.15), 0 1px 0px 0px rgba(230,230,230,0.6), inset 0 0 1px 1px rgba(0,0,0,0.2);
+			-webkit-box-shadow: inset 0 2px 5px 1px rgba(0, 0, 0, 0.15), 0 1px 0px 0px rgba(230, 230, 230, 0.6), inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+			box-shadow: inset 0 2px 5px 1px rgba(0, 0, 0, 0.15), 0 1px 0px 0px rgba(230, 230, 230, 0.6), inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+		}
+
+		.slider-volume > .track {
+
+			background: #3c255d; /* Old browsers */
+			/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+			background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxJSIgc3RvcC1jb2xvcj0iIzNjMjU1ZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiMjc1ZWYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+			background: -moz-linear-gradient(left,  #3c255d 1%, #b275ef 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, right top, color-stop(1%,#3c255d), color-stop(100%,#b275ef)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(left,  #3c255d 1%,#b275ef 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(left,  #3c255d 1%,#b275ef 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(left,  #3c255d 1%,#b275ef 100%); /* IE10+ */
+			background: -moz-linear-gradient(to right,  #3c255d 1%,#b275ef 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c255d', endColorstr='#b275ef',GradientType=1 ); /* IE6-8 */
+
+			height: 7px;
+
+		}
+
+		.slider-volume > .dragger 
+		{
+			width  : 25px;
+			height : 25px;
+			border : 0px;
+		}
+
+		.slider-volume 
+		{
+			width: 240px;
+		}
+
+		span.output
+		{
+			display: none;
+		}
+
+		.audio-icon
+		{
+			position: relative;	
+			float: left;
+
+		}
+
+		.audio-labels 
+		{
+			position       : relative;
+			left           : 23px;
+			margin-top     : -8px;
+			padding-bottom : 19px;
+		}
+
+		.audio-labels .audio-label-plus,
+		.audio-labels .audio-label-minus
+		{
+			color       : #606568;
+			width       : 50px;
+			font-family : "Arial Black", Gadget, sans-serif;
+			font-size   : 20px;
+			font-weight : bold;
+		}
+
+		.audio-labels .audio-label-plus
+		{
+			float    : right;
+			position : absolute;
+			top      : 2px;
+			left     : 252px;
+		}
+
+		.audio-slider
+		{
+			padding-left: 35px;
+		}
+
+		/*  INTERFACE */
+
+		#headphones_section .audio-slider-container
+		{
+			top: 960px;
+			left: 53px;
+			position: absolute;
+		}
+
+		.feelBass 
+		{
+			position       : relative;
+			left           : 109px;
+			padding-bottom : 20px;
+		}
+
+		.audio-buttons
+		{
+			position: relative;
+		}
+
+
+		.audio-btn1
+		{
+			background-image: url("http://see.lbox.com/elevateyoursound/ui/css/../img/snd1-btn.png");
+			width: 101px;
+			height: 97px;
+			float: left;
+			cursor: pointer;
+			cursor: hand;
+		}
+
+		.audio-btn2
+		{
+			background-image: url("http://see.lbox.com/elevateyoursound/ui/css/../img/snd2-btn.png");
+			width: 101px;
+			height: 97px;	
+			float: left;
+			margin-left: 20px;
+			cursor: pointer;
+			cursor: hand;
+		}
+
+		.audio-isPlaying
+		{
+			position: absolute;
+			font-size: 13px;
+			color: #D6D6D6;
+			position: absolute;
+			top: 121px;
+			display: none;
+		}
+
+		.audio-button-title 
+		{
+			font-size   : 16px;
+			color       : white;
+			font-weight : bold;
+			position    : relative;
+			left        : 43px;
+		}
+
+		#audio-loading
+		{
+			position: absolute;
+			font-size: 13px;
+			color: #D6D6D6;
+			top: 121px;
+			left: 75px;
+		}
+
+
+		/* 360 player*/
+
+
+		.ui360 .sm2-canvas {
+		position: absolute;
+		left: 8px;
+		top: -118px;
+		width: 105px;
+		}
+
+		.sm2-timing,
+		.sm2-360btn.sm2-360btn-default
+		{
+			display: none !important;
+		}
+
+		.ui360.ui360-vis
+		{
+			position: absolute
+		}</style>
+	</head>
+	<body>
+		
+		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="0" height="0" id="flashAudio" align="middle">
+	            <param name="movie" value="includes/swf/audio_transition.swf" />
+	            <param name="quality" value="high" />
+	            <param name="bgcolor" value="#000000" />
+	            <param name="allowScriptAccess" value="sameDomain" />
+	            <!--[if !IE]>-->
+	            <embed src="includes/swf/audio_transition.swf" quality="high" bgcolor="#000000"
+	             width="0" height="0" name="flashAudio" align="middle"
+	             play="true" loop="true" quality="high" allowScriptAccess="sameDomain"
+	             type="application/x-shockwave-flash"
+	             pluginspage="http://www.macromedia.com/go/getflashplayer">
+	        	</embed>
+	            <!--<![endif]-->
+	     </object>
+		 <div class="audio-slider-container"> 
+                <div class="feelBass"><img src="includes/images/feelTheBass.png"></div>
+                <div class="audio-icon"><img src="includes/images/volume_slider_icon.png"></div>
+                <div class="audio-slider">
+					<input value="1" style="display: none;" id="audioSlider-slider" data-slider-range="0,100" data-slider="true" data-default-value="1" data-slider-theme="volume" type="text">
+                </div>
+                <div class="audio-labels"> 
+                    <div class="audio-label-minus">-</div>
+                    <div class="audio-label-plus">+</div>                        
+                </div>
+
+            </div>
+		
+	</body>
+</html>

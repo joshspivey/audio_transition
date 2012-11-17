@@ -3,10 +3,6 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script src="includes/js/simple-slider.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript" src="includes/js/audioSlider.js"></script>
-		
 		<title></title>
 		
 		<style data-href="ui/css/audioSlider.css" media="">body
@@ -226,20 +222,14 @@
 	</head>
 	<body>
 		
-		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="0" height="0" id="flashAudio" align="middle">
-	            <param name="movie" value="includes/swf/audio_transition.swf" />
-	            <param name="quality" value="high" />
-	            <param name="bgcolor" value="#000000" />
-	            <param name="allowScriptAccess" value="sameDomain" />
-	            <!--[if !IE]>-->
+	
 	            <embed src="includes/swf/audio_transition.swf" quality="high" bgcolor="#000000"
 	             width="0" height="0" name="flashAudio" align="middle"
-	             play="true" loop="true" quality="high" allowScriptAccess="sameDomain"
+	             play="true" loop="true" quality="high" allowScriptAccess="always" id="flashAudio"
 	             type="application/x-shockwave-flash"
 	             pluginspage="http://www.macromedia.com/go/getflashplayer">
 	        	</embed>
-	            <!--<![endif]-->
-	     </object>
+	
 		 <div class="audio-slider-container"> 
                 <div class="feelBass"><img src="includes/images/feelTheBass.png"></div>
                 <div class="audio-icon"><img src="includes/images/volume_slider_icon.png"></div>
@@ -252,6 +242,10 @@
                 </div>
 
             </div>
+
+			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+			<script src="includes/js/simple-slider.js" type="text/javascript" charset="utf-8"></script>
+			<script type="text/javascript" src="includes/js/audioSlider.js"></script>
 		
 	</body>
 </html>

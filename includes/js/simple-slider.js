@@ -282,7 +282,7 @@ var __slice = [].slice,
         var obj, settings;
         if (settingsOrMethod && __indexOf.call(publicMethods, settingsOrMethod) >= 0) {
           obj = $(this).data("slider-object");
-          return obj[settingsOrMethod].apply(obj, params);
+			if(obj !== undefined) return obj[settingsOrMethod].apply(obj, params);
         } else {
           settings = settingsOrMethod;
           return $(this).data("slider-object", new SimpleSlider($(this), settings));

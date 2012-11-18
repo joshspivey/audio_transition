@@ -22,19 +22,18 @@ AudioSlider.prototype =
         }).bind("slider:ready slider:changed",
         function(event, data)
         {
-			//console.log(data.value.toFixed(3)/100);
-			//console.log((data.value.toFixed(3)/100) - (data.value.toFixed(3)));
-			var reverseSound = (data.value.toFixed(3)/100) - (data.value.toFixed(3));
+			var reverseSound = (100 - data.value.toFixed(3)) / 100;
 			var forwardSound = data.value.toFixed(3)/100;
-			self.flashObj.fadeSound(forwardSound, reverseSound);
+			var forwardDrop = (reverseSound>0.60)?forwardSound / 1000 : forwardSound;
+			var reverseDrop = (reverseSound<0.40)?reverseSound / 1000 : reverseSound;	
+
+			self.flashObj.fadeSound(forwardDrop, reverseDrop);
             $(this).nextAll(".output:first").html(data.value.toFixed(3));
         });
         $("#audioSlider-slider").simpleSlider("setValue", $("#audioSlider-slider").attr("data-default-value"));
 
-    },
-    controllerInterface: function() {
-
     }
+	
 
 
 

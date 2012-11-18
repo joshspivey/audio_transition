@@ -249,7 +249,7 @@
 				var params = {wmode:"opaque", allowscriptaccess:"always" };
 				var flashvars = {audioPath: "includes/music/", songOne: "madness.mp3", songTwo: "diamonds.mp3"};
 				var attributes = {id:"flashAudio",  name:"flashAudio"};
-				swfobject.embedSWF("includes/swf/audio_transition.swf", "flashAudioContainer", "0", "0", "9.0.0", "expressInstall.swf", params, flashvars);
+				swfobject.embedSWF("includes/swf/audio_transition.swf", "flashAudioContainer", "0", "0", "9.0.0", "expressInstall.swf", flashvars, params,  attributes);
 				function onSwfLoaded(){
 				    new AudioSlider();
 				    return true;

@@ -40,8 +40,8 @@ AudioSlider.prototype =
 		var self = this;
 		var reverseSound = (100 - this.sliderData) / 100;
 		var forwardSound = this.sliderData/100;
-		var forwardDrop = (reverseSound>0.60)?forwardSound / 1000 : forwardSound;
-		var reverseDrop = (reverseSound<0.40)?reverseSound / 1000 : reverseSound;	
+		var forwardDrop = (reverseSound>0.60)?forwardSound / 500 : forwardSound;
+		var reverseDrop = (reverseSound<0.40)?reverseSound / 500 : reverseSound;	
 
 		self.flashObj.fadeSound(forwardDrop, reverseDrop);
 	}
